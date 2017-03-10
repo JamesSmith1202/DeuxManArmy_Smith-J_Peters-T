@@ -1,6 +1,4 @@
-# JuanManArmy_Smith-J
-Lab01: James Smith pd 3
-  Note: I never received an email from my group so I worked alone
+# DeuxManArmy_Smith-J_Peters-T
 
 **Quick Sort's Big-Oh Runtime:**
   Best Case: O(nlog(n))
