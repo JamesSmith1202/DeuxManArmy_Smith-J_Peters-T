@@ -3,9 +3,22 @@
 //Lab01 -- What does the data say?
 //2017-03-09
 
+/******************************
+ * Testing Methodology 
+    My algo runs 100000 tests per randomly generated array sizes of 1,10, 100, and 100000. 
+	For each, the mean of the 100000 tests is calculated for an average execution time.
+	Method averageTestTime runs runTest 100000 times, which first generates a randomly-populated
+	array of a specified size and then starts timing the quick sort. Once the array is sorted, the
+	total time is found by calculating the difference between the end and start time. Then the time
+	for the 100000 tests is averaged.
+******************************/
+
 public class QuickSortTester{
 
     //TESTING METHODS ----------------------------------------------------------------------
+
+    //Average Case vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    
     //generates an int array of length 'size' with random numbers within the range 0-maxNum
     public static int[] generateArray(int size, int maxNum){
 	int[] retArr = new int[size];
@@ -32,6 +45,37 @@ public class QuickSortTester{
 	}
 	return (totalTime/(long)numTests)*0.000000001;
     }
+
+    //Average Case ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    //Worst Case vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+    
+    public static int[] generateArrayBad(int size){
+	int[] retArr = new int[size];
+	for (int i = 0; i<size;i++){
+	    retArr[i] = 0;
+	}
+	return retArr;
+    }
+
+    public static long runTestBad(int size){
+	int[] Arr = generateArrayBad(size);
+	long startTime = System.nanoTime();
+	qsort(Arr);
+	long endTime   = System.nanoTime();
+	return endTime - startTime;
+    }
+
+    public static double averageTestTimeBad(int numTests, int size){
+	long totalTime = 0;
+	for(int i = 0; i < numTests; i++){
+	    totalTime += runTestBad(size);
+	}
+	return (totalTime/(long)numTests)*0.000000001;
+    }
+
+    //Worst Case ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
     //TESTING METHODS ----------------------------------------------------------------------
 
     
@@ -67,6 +111,7 @@ public class QuickSortTester{
 	    qsort(d, pos+1, upper);
 	}
     }
+    
     //QUICKSORT HELPER METHODS --------------------------------------------------------------------
 
     
@@ -84,7 +129,11 @@ public class QuickSortTester{
 	int numTests = 100000;
 	int maxNum = 100000;
 	int size;
+	
 	System.out.println("Tests of a quick sort algorithm at different sizes. Execution time is in seconds.\n Number of tests performed: " + numTests + "\n Maximum Number: " + maxNum);
+
+	//Average Case ----------------------------------------------------------------------------
+	System.out.println("\nNow printing the average case:");
 	//for n=1 ---------------------------------------
 	size = 1;
 	System.out.println("Now printing the average execution time for an array of size " + size);
@@ -109,5 +158,33 @@ public class QuickSortTester{
 	size = 100000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
 	System.out.println(averageTestTime(numTests, size, maxNum));
+	
+	//Worst Case ------------------------------------------------------------------------------
+	System.out.println("\n Now printing the worst case:");
+	//for n=1 ---------------------------------------
+	size = 1;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	//for n=10 --------------------------------------
+	size = 10;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	//for n=100 -------------------------------------
+	size = 100;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	//for n=1000 ---------------------------------------
+	size = 1000;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	//for n=10000 -------------------------------------
+	size = 10000;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	//for n=100000 -------------------------------------
+	size = 100000;
+	System.out.println("Now printing the average execution time for an array of size " + size);
+	System.out.println(averageTestTimeBad(numTests, size));
+	
     }//end main
 }
