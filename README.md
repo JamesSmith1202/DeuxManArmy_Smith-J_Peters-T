@@ -16,12 +16,16 @@ Lab01: James Smith pd 3
 **Methodology:** 
   The method of testing the average case involves 3 methods. One to generate an array of a desired size populated with random integers from 0 to a desired upper bound, one to record the run time of the merge sort algorithm on a random array, and one to call the previous a certain number of times and average the runtimes out. By creating random arrays, we are ensuring that there is no bias in the runtimes. To ensure that all irregularities are ironed out, I ran 100,000 tests of quicksort with each size.
   I honestly can not think of a way to force the best case scenario without adding additional computation time. It would take longer to determine the exact median value each time quick sort was run than using a bad value because you would need to loop through each value in the array because it is unsorted.
-  As for the worst case, the goal was to ensure that the minimum value was the pivot each time, so I used sorted arrays instead of random arrays in order to ensure that the leftmost value would always be the minimum. I then modified the quicksort to select the pivot from the beginning of the partition instead of the middle. All of these things allowed me to force the worst case scenario. 
+  As for the worst case, the goal was to ensure that the pivot was an extreme each time. I did this by making all of the values in the array the same. When doing this, each value is considered an extreme and requires every value to be swapped until it moves to an extreme end. I ran the rest of the testing normally.
+  
+  To test our algorithm of quick sort against a BigOh classification we used a method of approximating execution time. In this method we took the average runtime of sorting a single element list. This acted as constant which allowed us to apply it to the BigOh classifications in order to get an approximate runtime on a specific computer(mine).
 
 
-**Time Measurements:** <insert link here>
+**Time Measurements:** https://docs.google.com/document/d/1_Qq52B6zEgGwo5uqLkSih6sZ1vmJtehrESekCjfOXDE/pub
 
 **Time Measurement Analysis:**
   Average Case:
+  It can be seen from the runtime approximations that an nlogn complexity more closely represents the true outcome when compared to an n^2 complexity. This assertion can be further reinforced by the regression models of the data points in the chart(see time measurement link for pictures and graphs). The purple line(nlogn) fits the data perfectly, while the red line(n^2) does not fit the data as nicely. 
   
   Worst Case:
+When looking at the runtime graphs you will notice that I was not even able to finish the 10,000 size array of the worst case because it resulted in a Stack overflow error. This shows truly how bad the worst case really is. As for the other sizes, the smaller sizes are closer to the nlogn approximation, but as the array grows sufficiently large, the points begin to correlate more with the n^2 complexity. When looking at the regression model, the red line fits much nicer with the data when compared with the purple line.
