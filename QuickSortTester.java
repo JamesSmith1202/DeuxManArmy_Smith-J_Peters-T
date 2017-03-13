@@ -87,7 +87,14 @@ public class QuickSortTester{
 	o[x] = o[y];
 	o[y] = tmp;
     }
-    
+    public static int median3(int l, int m, int q, int[] arr) {
+	if ((arr[q] - arr[l]) * (arr[q] - arr[m]) <= 0)
+	    return q;
+	if ((arr[m] - arr[l]) * (arr[m] - arr[q]) <= 0)
+	    return m;
+	return l;
+	
+    }
     public static int partitionArrayByPoint(int[] arr, int lowerBound, int upperBound, int partitionPoint){
 	int partitionValue = arr[partitionPoint];//a point in which the array is divided in a sense. where numbers smaller than it are swapped with those greater than it. A reference point.
 	swap(partitionPoint, upperBound, arr);//make the partitionvalue be the last in the array in order for it to be the last value to be swapped.
@@ -103,7 +110,7 @@ public class QuickSortTester{
     }
     
     public static void qsort(int[] d, int lower, int upper){
-	int pos =  partitionArrayByPoint(d, lower, upper, (lower+upper)/2); //index that partitions the list
+	int pos =  partitionArrayByPoint(d, lower, upper, median3(lower, upper, (lower + upper) / 2, d)); //index that partitions the list
 	if(lower < pos){ //if the partition point isnt the smallest index, then recursively call the sorting on the smaller section of the list
 	    qsort(d, lower, pos-1);
 	}
