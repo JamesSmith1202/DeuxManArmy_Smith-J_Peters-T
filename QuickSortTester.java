@@ -133,65 +133,65 @@ public class QuickSortTester{
 
     //MAIN METHOD FOR TESTING
     public static void main( String[] args ){
-	int numTests = 100000;
-	int maxNum = 100000;
+	final int TESTS = 100000;
+	final int MAX = 100000;
 	int size;
 	
-	System.out.println("Tests of a quick sort algorithm at different sizes. Execution time is in seconds.\n Number of tests performed: " + numTests + "\n Maximum Number: " + maxNum);
+	System.out.println("Tests of a quick sort algorithm at different sizes. Execution time is in seconds.\n Number of tests performed: " + TESTS + "\n Maximum Number: " + MAX);
 
 	//Average Case ----------------------------------------------------------------------------
 	System.out.println("\nNow printing the average case:");
 	//for n=1 ---------------------------------------
 	size = 1;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	//for n=10 --------------------------------------
 	size = 10;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	//for n=100 -------------------------------------
 	size = 100;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	//for n=1000 ---------------------------------------
 	size = 1000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	//for n=10000 -------------------------------------
 	size = 10000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	//for n=100000 -------------------------------------
 	size = 100000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTime(numTests, size, maxNum));
+	System.out.println(averageTestTime(TESTS, size, MAX));
 	
 	//Worst Case ------------------------------------------------------------------------------
 	System.out.println("\n Now printing the worst case:");
 	//for n=1 ---------------------------------------
 	size = 1;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=10 --------------------------------------
 	size = 10;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=100 -------------------------------------
 	size = 100;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=1000 ---------------------------------------
 	size = 1000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=10000 -------------------------------------
 	size = 10000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=100000 -------------------------------------
 	size = 100000;
 	System.out.println("Now printing the average execution time for an array of size " + size);
-	System.out.println(averageTestTimeBad(numTests, size));
+	System.out.println(averageTestTimeBad(TESTS, size));
 	
     }//end main
 }
