@@ -189,7 +189,7 @@ public class QuickSortTester{
 	System.out.println("Now printing the average execution time for an array of size " + size);
 	System.out.println(averageTestTimeBad(TESTS, size));
 	//for n=100000 -------------------------------------
-	size = 100000;
+	size = 100000; // WARNING: Will cause stack overflow.
 	System.out.println("Now printing the average execution time for an array of size " + size);
 	System.out.println(averageTestTimeBad(TESTS, size));
 	
